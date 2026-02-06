@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bài TK3</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <h2>Bài TK3: Tính phí vận chuyển</h2>
+    <input type="number" id="subtotal" placeholder="Nhập tổng đơn hàng" />
+    <button onclick="calculateTotal()">Tính</button>
+
+    <p id="result"></p>
+
+    <a href="/index.html">← Quay về trang chủ</a>
+
+    <script>
+      function calculateTotal() {
+        const subtotal = Number(document.getElementById("subtotal").value);
+        const shipping = subtotal > 50 ? 0 : 5;
+        const total = subtotal + shipping;
+        document.getElementById("result").textContent =
+          `Phí ship: $${shipping} | Tổng: $${total}`;
+      }
+    </script>
+  </body>
+</html>

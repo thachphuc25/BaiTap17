@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bài T7</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <h2>Bài T7: Tính tổng mảng</h2>
+    <p>Mảng: [1, 5, 10, 2]</p>
+
+    <button onclick="calculateSum()">Tính tổng</button>
+    <p>Kết quả: <span id="sum-output"></span></p>
+
+    <a href="/index.html">← Quay về trang chủ</a>
+
+    <script>
+      function calculateSum() {
+        const numbers = [1, 5, 10, 2];
+        const sum = numbers.reduce((acc, cur) => acc + cur, 0);
+        document.getElementById("sum-output").textContent = sum;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bài TK8</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <h2>Bài TK8: Chuyển Hex sang RGB</h2>
+    <input type="text" id="hex" placeholder="#FF0000" />
+    <button onclick="convert()">Chuyển đổi</button>
+
+    <p id="rgb"></p>
+
+    <a href="/index.html">← Quay về trang chủ</a>
+
+    <script>
+      function hexToRgb(hex) {
+        const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+        hex = hex.replace(
+          shorthandRegex,
+          (m, r, g, b) => r + r + g + g + b + b,
+        );
+
+        const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result
+          ? `rgb(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)})`
+          : "Mã không hợp lệ";
+      }
+
+      function convert() {
+        const hex = document.getElementById("hex").value;
+        document.getElementById("rgb").textContent = hexToRgb(hex);
+      }
+    </script>
+  </body>
+</html>
